@@ -7,4 +7,4 @@
   2.  Username : sa
   3. Password : CamundaMSQL2019!
 4. Start the External Client project application (optional, just to see that when the tasks are executed the time is decreasing)
-5. Start measuring the time for the queries in the QUERY folder
+5. Start measuring the time for the queries in the QUERIES folder
