@@ -1,0 +1,27 @@
+version: '3'
+services:  
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - 1433:1433
+    volumes:
+      - ~/apps/mssql:/var/lib/mssql/data
+    environment:
+      - MSSQL_SA_PASSWORD=CamundaMSQL2019!
+      - ACCEPT_EULA=Y
+
+  camunda-1:
+    image: registry.camunda.cloud/cambpm-ee/camunda-bpm-platform-ee:7.20.1
+    environment:
+      - DB_DRIVER=com.microsoft.sqlserver.jdbc.SQLServerDriver
+      - DB_URL=jdbc:sqlserver://mssql:1433;TrustServerCertificate=True
+      - DB_PASSWORD=CamundaMSQL2019!
+      - WAIT_FOR=mssql:1433
+    links:
+      - mssql
+    ports:
+      - "8080:8080"
+    restart: always
+    volumes:
+      - "./default.yml:/camunda/configuration/default.yml"
+      - "./mssql-jdbc-12.8.1.jre11.jar:/camunda/lib/mssql-jdbc-12.8.1.jre11.jar"

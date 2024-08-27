@@ -1,0 +1,18 @@
+camunda.bpm:
+  admin-user:
+    id: demo
+    password: demo
+    firstName: Demo
+    lastName: Demo
+  filter:
+    create: All Tasks
+  job-execution:
+    enabled: true
+
+#logging:
+#  level:
+#    org.camunda.bpm.engine.pvm: DEBUG
+#    org.camunda.bpm.engine.persistence: DEBUG
+#    org.camunda.bpm.engine.impl.persistence.entity: DEBUG
+#    org.camunda.bpm.engine.cmd: DEBUG
+    # org.camunda.bpm.engine.jobexecutor: DEBUG
